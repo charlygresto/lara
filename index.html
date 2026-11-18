@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Official Baby Certificate: Lara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff6d9;
+    --paper: #ffffff;
+    --ink: #2b2a4c;
+    --soft: #6b6990;
+    --pink: #ff8fb1;
+    --blue: #7cc6fe;
+    --stamp: #e5446d;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1d1b33;
+      --paper: #2b2948;
+      --ink: #fdf3d8;
+      --soft: #b9b6d8;
+      --pink: #ff8fb1;
+      --blue: #7cc6fe;
+      --stamp: #ff6b8e;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Nunito", system-ui, sans-serif;
+    display: grid;
+    place-items: center;
+    padding: 2rem 1rem;
+    padding-top: calc(2rem + env(safe-area-inset-top, 0px));
+    padding-bottom: calc(2rem + env(safe-area-inset-bottom, 0px));
+    background-image:
+      radial-gradient(var(--pink) 2px, transparent 2px),
+      radial-gradient(var(--blue) 2px, transparent 2px);
+    background-size: 40px 40px;
+    background-position: 0 0, 20px 20px;
+  }
+  .card {
+    position: relative;
+    background: var(--paper);
+    max-width: 560px;
+    width: 100%;
+    padding: 2.5rem 2rem 2rem;
+    border-radius: 28px;
+    border: 4px dashed var(--blue);
+    text-align: center;
+  }
+  .rattle { font-size: 3.5rem; line-height: 1; }
+  h1 {
+    font-family: "Chewy", "Comic Sans MS", cursive;
+    font-weight: 400;
+    font-size: clamp(2.2rem, 7vw, 3.4rem);
+    margin: 0.5rem 0 0.25rem;
+    color: var(--pink);
+    letter-spacing: 0.02em;
+  }
+  .sub { color: var(--soft); margin: 0 0 1.5rem; }
+  .age {
+    font-family: "Chewy", cursive;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .age small { font-size: 1.4rem; color: var(--soft); display: block; margin-top: 0.3rem; font-family: "Nunito", sans-serif; }
+  .stamp {
+    position: absolute;
+    top: 1.2rem;
+    right: -0.5rem;
+    transform: rotate(14deg);
+    border: 3px solid var(--stamp);
+    color: var(--stamp);
+    font-family: "Chewy", cursive;
+    font-size: 1.1rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 8px;
+    background: var(--paper);
+  }
+  .countdown {
+    margin: 1.8rem 0 1.2rem;
+    padding: 1rem;
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--blue) 18%, transparent);
+  }
+  .countdown p { margin: 0 0 0.3rem; }
+  #timer { font-weight: 700; font-size: 1.3rem; }
+  .joke {
+    min-height: 3.5em;
+    font-size: 1.15rem;
+    margin: 1.2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  button {
+    font-family: "Chewy", cursive;
+    font-size: 1.3rem;
+    background: var(--pink);
+    color: #2b2a4c;
+    border: none;
+    padding: 0.7rem 1.6rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.15s;
+  }
+  button:hover { transform: scale(1.05); }
+  button:active { transform: scale(0.95); }
+  button:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+  .fine { margin-top: 1.5rem; font-size: 0.85rem; color: var(--soft); }
+  @media (prefers-reduced-motion: reduce) { button { transition: none; } }
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="stamp">Certified baby</div>
+    <div class="rattle" aria-hidden="true">🍼</div>
+    <h1>Baby Lara</h1>
+    <p class="sub">Official Certificate of Being Extremely Young</p>
+
+    <div class="age">21<small>years old (basically a toddler)</small></div>
+
+    <div class="countdown">
+      <p>Time left before she becomes an ancient 22 on May 3:</p>
+      <div id="timer">calculating…</div>
+    </div>
+
+    <p class="joke" id="joke">Press the button to learn the truth about Lara.</p>
+    <button id="btn" type="button">Tell me more</button>
+
+    <p class="fine">Lara is still allowed to sit at the kids’ table until further notice.</p>
+  </main>
+
+<script>
+  const jokes = [
+    "Lara thinks the floppy disk is just “the save icon.” 💾",
+    "When Lara was born, we already had YouTube. She has never known boredom.",
+    "Lara’s bedtime is 9 PM. Strictly enforced. 🌙",
+    "Lara asked what a DVD is. We had to sit down.",
+    "Lara still gets the kids’ menu with crayons. 🖍️",
+    "Lara says “back in my day” about things from 2019.",
+    "Scientists confirm: Lara is younger than most of your playlists.",
+    "Lara’s first phone had a touchscreen. Respect your elders, Lara.",
+    "Lara is 21, which is legally adult but spiritually a baby. 👶",
+    "Warning: Lara may need a juice box and a nap after this page."
+  ];
+  let last = -1;
+  document.getElementById("btn").addEventListener("click", () => {
+    let i;
+    do { i = Math.floor(Math.random() * jokes.length); } while (i === last);
+    last = i;
+    document.getElementById("joke").textContent = jokes[i];
+  });
+
+  function nextBirthday() {
+    const now = new Date();
+    let b = new Date(now.getFullYear(), 4, 3); // May 3
+    if (now >= b) b = new Date(now.getFullYear() + 1, 4, 3);
+    return b;
+  }
+  function tick() {
+    const diff = nextBirthday() - new Date();
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor(diff / 3600000) % 24;
+    const m = Math.floor(diff / 60000) % 60;
+    const s = Math.floor(diff / 1000) % 60;
+    document.getElementById("timer").textContent =
+      `${d} days, ${h} hours, ${m} minutes, ${s} seconds`;
+  }
+  tick();
+  setInterval(tick, 1000);
+</script>
+</body>
+</html>
